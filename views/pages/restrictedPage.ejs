@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('../partials/header'); %>
+</head>
+<%- include('../partials/navBar'); %>
+
+<body>
+  <h1 class="  p-3"><%= title %></h1>
+  <br><br><br>
+  <div class="container  p-5 w-75">
+    <div class="row shadow rounded bg-white p-4">
+        <div class="col-md ">
+        <button class="btn w-100 h-100 shadow-sm btn-outline-info rounded" id="GoBackBtn">
+          <div class="card border-0">
+            <div class="card-body">
+              <h5 class="card-title text-start">Go Back</h5>
+              <p class="card-body text-start">Go back to the previous page</p>
+            </div>
+          </div>
+        </button>
+      </div>
+      <% if(locals.auth === false){%>
+        <div class="col-md ">
+        <a class="btn w-100 h-100 shadow-sm btn-outline-info rounded" href="/login">
+          <div class="card border-0">
+            <div class="card-body">
+              <h5 class="card-title text-start">Login</h5>
+              <p class="card-body text-start">Log in to your account</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <% } %>
+    </div>
+  </div>
+  
+      <script src="/static/js/goBackBtn.js"></script>
+</body>
+
+
+
+</html>

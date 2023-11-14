@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('../partials/header'); %>
+</head>
+<%- include('../partials/navBar'); %>
+
+<body>
+  <h1 class="p-3"><%= title %></h1>
+
+
+<div class="shadow rounded bg-white p-3 container">
+  <% for(i=0; i< questions.length; i++) {%>
+  <div class="accordion" id="helpAccordionNum<%- i %>">
+    <div class="accordion-item p-5 border-0">
+      <h2 class="accordion-header border rounded" id="headingNum<%- i %>">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNum<%- i %>" aria-expanded="false" aria-controls="collapseNum<%- i %>">
+          <%= questions[i].question %>
+        </button>
+      </h2>
+      <div id="collapseNum<%- i %>" class="accordion-collapse collapse" aria-labelledby="headingNum<%- i %>" data-bs-parent="#helpAccordionNum<%- i %>">
+        <div class="accordion-body border-bottom text-start">
+          <%= questions[i].answer %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% } %>
+
+</div>
+
+  <%- include('../partials/scriptLink'); %>
+</body>
+
+</html>

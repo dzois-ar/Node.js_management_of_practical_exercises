@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-sm d-none d-sm-block ">
+  <div class="container-fluid ">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="p-2">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        </div>
+        <% if(!locals.isMainPage) {%>
+        <% if (locals.role == 'student') { %>
+        <div class="p-2">
+          <li class="nav-item"><a class="nav-link" href="/student/EditProfileStudent">Edit your Profile</a></li>
+        </div>
+        <div class="p-2">
+          <li class="nav-item"><a class="nav-link" href="/student/CreateApplication">Create Application</a></li>
+        </div>
+        <% } %>
+        <%if(locals.loggedin == 0){%>
+        <div class="p-2">
+          <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+        </div>
+        <% } %>
+        <% } %>
+        <div class="p-2">
+          <li class="nav-item"><a class="nav-link" href="/help">Help</a></li>
+        </div>
+      </ul>
+      <% if(locals.loggedin == 1){ %>
+
+      <div class="navbar-nav d-flex p-2">
+        <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+      </div>
+
+      <% } %>
+    </div>
+  </div>
+</nav>

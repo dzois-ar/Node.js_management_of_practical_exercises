@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('../partials/header'); %>
+  <script type='text/css' src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type='text/css' src="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css"></script>
+
+
+
+  <link rel="stylesheet" href="/static/css/studentProfile.css">
+</head>
+<%- include('../partials/navBar'); %>
+
+<body>
+  <h2 class="p-3"><%=title %></h2>
+  <div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+<div class="col-xl-6 col-xl-12">
+                                                <div class="card user-card-full">
+                                                    <div class="row m-l-0 m-r-0">
+                                                        <div class="col-sm-4 bg-c-lite-green user-profile">
+                                                            <div class="card-block text-center text-white">
+                                                                <div class="m-b-25" >
+                                                                    <!-- <png src=<%=info.photo %> class="img-radius" type="image/svg+xml"> -->
+                                                                    <a href="/student/EditProfileStudent"><img src=<%=info.photo %> class="img-radius" height="250"></a>
+                                                                </div>
+                                                                <h5 class="f-w-600"><%=info.first_name %>   <%=info.last_name %></h5>
+                                                                <a href="/student/EditProfileStudent" role="button" class="btn btn-success btn-sm w-sm waves-effect m-t-10 waves-light">Edit profile</a>
+                                                                <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <div class="card-block">
+                                                                <h4 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h4>
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                        <p class="m-b-15 f-w-600">Email</p>
+                                                                        <h6 class="text-muted f-w-400"><%=info.email %></h6>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <p class="m-b-10 f-w-600">Location</p>
+                                                                        <h6 class="text-muted f-w-400"><%=info.location %></h6>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <p class="m-b-10 f-w-600">Date of Birth</p>
+                                                                        <h6 class="text-muted f-w-400"><%=info.date_of_birth.toLocaleDateString() %></h6>
+                                                                    </div>
+                                                                </div>
+                                                                <h4 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Applications</h4>
+                                                                <div class="row">
+                                                                    <ol class="list-group list-group-numbered">
+                                                                        <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Finalized applications</h6>
+                                                                        <% for(let i = 0; i < applications.length; i++) { %>
+                                                                            <%if (applications[i].finalized == true) {%>
+                                                                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                                                    <div class="ms-2 me-auto">
+                                                                                      <div class="fw-bold"><%=applications[i].create_date_ap.toLocaleDateString() %></div>
+                                                                                      <%if (applications[i].approval == true) {%>
+                                                                                        <h6 style="color:rgb(4, 160, 4);">Αpproval of the application</h6> 
+                                                                                      <%}else if (applications[i].approval == false) {%>  
+                                                                                            <h6 class="text-muted f-w-400"></h6>
+                                                                                      <%}else{%>  
+                                                                                        <h6 class="text-muted f-w-400">pending application</h6> 
+                                                                                      <%}%>     
+                                                                                    </div> 
+                                                                                    <%if (applications[i].approval == null || applications[i].approval == true) {%>
+                                                                                        <button type="button" class="viewBtns btn btn-success" id="reviewSubmitBtn" value="<%= applications[i].application_id %>">Details</button>  
+                                                                                    <%}%>     
+                                                                                    <%if (applications[i].approval == null) {%>
+                                                                                    <!-- <form method="POST" action="/student/deleteReview"> -->
+                                                                                        <input type="hidden" name="application_id_review" value="<%= applications[i].application_id %>">
+                                                                                        <input type="hidden" name="student_id_review" value="<%= info.student_id %>">
+                                                                                        <input type="hidden" name="review_id" value="<%= applications[i].review_id %>">
+                                                                                        <button type="button" class="btn btn-danger" id="deleteReviewBTN">Delete</button> 
+                                                                                        <!-- <button type="submit" class="btn btn-danger">Delete</button>  -->
+                                                                                    <!-- </form>   -->
+                                                                                    <%}%>  
+                                                                                    <%if (applications[i].approval == false) {%>
+                                                                                        <h6><div class="alert alert-danger" role="alert">
+                                                                                            <a  class="alert-link" ">Αpplication rejected see comments.</a>.
+                                                                                            <button type="button" class="rejectBtns btn btn-danger" id="reviewSubmitBtn" value="<%= applications[i].review_id %>">Details</button>
+                                                                                       </div></h6>
+                                                                                    <%}%>        
+                                                                                </li>
+                                                                            <%}%>       
+                                                                        <% }%> 
+                                                                        <br><br><br>
+                                                                        <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Save applications</h6>
+                                                                        <% for(let i = 0; i < applications.length; i++) { %>
+                                                                            <%if (applications[i].finalized == false ) {%>
+                                                                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                                                                    <div class="ms-2 me-auto">
+                                                                                      <div class="fw-bold"><%=applications[i].create_date_ap.toLocaleDateString() %></div> 
+                                                                                      <h4><%= applications[i].review_id %></h4>
+                                                                                    </div>
+                                                                                    <button type="button" class="applicationBtns btn btn-success" id="reviewSubmitBtn" value="<%= applications[i].application_id %>">Details</button>
+                                                                                       
+                                                                                        <input type="hidden" name="student_id" value="<%= info.student_id %>">
+                                                                                        <input type="hidden" name="application_id" value="<%= applications[i].application_id %>">
+                                                                                        <button type="button" class="btn btn-danger" id="deleteBTN">Delete</button> 
+                                                                                   
+                                                                                    
+                                                                                </li>
+                                                                            <%}%>       
+                                                                        <% } %>   
+                                                                    </ol>    
+                                                                </div>
+                                                               
+                                                                <div class="card-body text-center"> <a href="/student/CreateApplication" class="m-t-10 m-b-20 waves-effect waves-dark btn btn-primary btn-md btn-rounded" data-abc="true">Create Application</a></div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                             </div>
+                                                </div>
+                                            </div>                            
+
+    <%- include('../partials/applicationViewModal'); %>
+    <%- include('../partials/applicationRejectViewModal'); %>
+    <%- include('../partials/applicationReviewModal'); %> 
+    <%- include('../partials/scriptLink'); %> 
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+    <script src="/static/js/studentApplicationReviewModal.js"></script>
+    <script src="/static/js/sweetalertLib.js"></script>
+    <script src="/static/js/applicationReviewModal.js"></script>
+</body>
+
+</html>

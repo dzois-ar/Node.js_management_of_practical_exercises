@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('../partials/header'); %>
+</head>
+<%- include('../partials/navBar'); %>
+
+<body>
+  <h1 class="p-3"><%= title %></h1>
+  <div class="container">
+    <div class="row">
+      <div class="container p-3 w-50">
+        <form>
+          <label for="savedInput" class="form-label">Saved Application</label>
+          <select class="form-select" id="savedInput">
+            <option value="" selected>Select Saved Applications</option>
+            <option value="">None</option>
+            <% for(i=0;i<savedApplications.length;i++){ %>
+            <option value="<%- savedApplications[i].application_id %>"><%- savedApplications[i].create_date_ap %></option>
+            <% } %>
+          </select>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="container shadow rounded bg-white p-3 w-50">
+        <form>
+          <div class="mb-3" id="supervisor_idInputDiv">
+            <label for="supervisor_idInput" class="form-label">Supervisor</label>
+            <select class="form-select" aria-describedby="supervisor_idError" id="supervisor_idInput">
+              <option value="" selected>Select Supervisor</option>
+              <% for(i=0;i<supervisors.length;i++){ %>
+              <option value="<%- supervisorIds[i] %>"><%- supervisors[i].user_name %></option>
+              <% } %>
+            </select>
+            <div class="invalid-feedback" id="supervisor_idError"></div>
+          </div>
+          <div class="mb-3">
+            <label aria-describedby="execution_certificateHelp" id="execution_certificateInputLabel" for="execution_certificateInput" class="form-label">Execution Certificate</label>
+            <input type="file" class="form-control" aria-describedby="execution_certificateError" id="execution_certificateInput" placeholder="execution certificate">
+            <small id="execution_certificateHelp" class="form-text text-muted" hidden>You have a saved file</small>
+            <div class="invalid-feedback" id="execution_certificateError"></div>
+          </div>
+          <div class="mb-3">
+            <label aria-describedby="completion_reportHelp" id="completion_reportInputLabel" for="completion_reportInput" class="form-label">Completion Report</label>
+            <input type="file" class="form-control" aria-describedby="completion_reportError" id="completion_reportInput" placeholder="completion report">
+            <small id="completion_reportHelp" class="form-text text-muted" hidden>You have a saved file</small>
+            <div class="invalid-feedback" id="completion_reportError"></div>
+          </div>
+          <div class="mb-3">
+            <label aria-describedby="progress_reportHelp" id="progress_reportInputLabel" for="progress_reportInput" class="form-label">Progress Report</label>
+            <input type="file" class="form-control" aria-describedby="progress_reportError" id="progress_reportInput" placeholder="progress report">
+            <small id="progress_reportHelp" class="form-text text-muted" hidden>You have a saved file</small>
+            <div class="invalid-feedback" id="progress_reportError"></div>
+          </div>
+          <div class="mb-3">
+            <label for="company_nameInput" class="form-label">Company Name</label>
+            <input type="text" class="form-control" aria-describedby="company_nameError" id="company_nameInput" placeholder="company name">
+            <div class="invalid-feedback" id="company_nameError"></div>
+          </div>
+          <div class="mb-3">
+            <label for="durationInput" class="form-label">Duration</label>
+            <select class="form-select" aria-describedby="durationError" id="durationInput" placeholder="duration">
+              <option value="" selected>Select Duration</option>
+              <option value="3">3 Months</option>
+              <option value="6">6 Months</option>
+            </select>
+            <div class="invalid-feedback" id="durationError"></div>
+          </div>
+          <div class="mb-3">
+            <label for="employmentInput" class="form-label">Employment</label>
+            <select class="form-select" aria-describedby="employmentError" id="employmentInput" placeholder="employment">
+              <option value="" selected>Select Employment Type</option>
+              <option value="full">Full</option>
+              <option value="partial">Partial</option>
+            </select>
+            <div class="invalid-feedback" id="employmentError"></div>
+          </div>
+          <div class="mb-3">
+            <label for="start_dateInput" class="form-label">Start Date</label>
+            <input type="date" class="form-control" aria-describedby="start_dateError" id="start_dateInput" placeholder="start date">
+            <div class="invalid-feedback" id="start_dateError"></div>
+          </div>
+          <div class="mb-3">
+            <label for="expiry_dateInput" class="form-label">Expiry Date</label>
+            <input type="date" class="form-control" aria-describedby="expiry_dateError" id="expiry_dateInput" placeholder="expiry date">
+            <div class="invalid-feedback" id="expiry_dateError"></div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <button type="button" id="saveBtn" class="btn btn-primary">Save</button>
+              </div>
+              <div class="col">
+                <button type="button" id="sendBtn" class="btn btn-primary">Finalize</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div><br>
+    </div>
+  </div>
+
+
+  <%- include('../partials/scriptLink'); %>
+  <script src="/static/js/createApplication.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('../partials/header'); %>
+</head>
+<%- include('../partials/navBar'); %>
+
+<body>
+  <input type="text" id="supervisor_idHiddenInput" value="<%- supervisor_id %>" hidden>
+  <div class="container" id="mainContainer">
+    <div class="row">
+      <h1>
+        <%= title %>
+      </h1>
+    </div>
+    <div class="row">
+      <table id="applicationTable" class="table table-striped w-100 pt-5 m-2">
+        <thead id="applicationTableHeader">
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Company Name</th>
+            <th>Creation Date</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+
+  <%- include('../partials/applicationViewModal'); %>
+  <%- include('../partials/applicationReviewModal'); %>
+  <%- include('../partials/scriptLink'); %>
+  <script src="/static/js/applications.js"></script>
+  <script src="/static/js/applicationReviewModal.js"></script>
+</body>
+
+</html>

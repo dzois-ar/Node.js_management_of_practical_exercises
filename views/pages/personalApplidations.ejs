@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <%- include('../partials/header'); %> -->
+</head>
+<!-- <%- include('../partials/navBar'); %> -->
+
+    <body>
+        <div class="container" id="mainContainer">
+            <div class="row">
+                <h1>
+                    <%= title %>
+                </h1>
+            </div>
+            <div class="row">
+                <table id="applicationTable" class="table table-striped w-100 pt-5 m-2">
+                    <thead id="applicationTableHeader" >
+                        <!-- <tr>
+                            <th>files</th>
+                            <th>supervisor</th>
+                            <th>grade</th>
+                            <th>comments</th>
+                        </tr> -->
+                    </thead>
+                </table>
+            </div>
+        </div>
+
+        <%- include('../partials/scriptLink'); %>
+            <script src="/static/js/PersonalApplications.js"></script>
+    </body>
+
+</html>

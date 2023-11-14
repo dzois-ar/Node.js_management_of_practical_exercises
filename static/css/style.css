@@ -1,0 +1,292 @@
+:root {
+    --bs-font-sans-serif: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --app-menu-blue: rgb(0,137,208);
+    --app-nav-blue: #5d89ba;
+    --app-nav-green: #008080;
+    --btn-info: #000099;
+    --app-green: #99CA3C;
+    --app-card-title: rgb(0,137,208);
+    --modal-bg-color: #dfdfdf;
+    --modal-card-header: rgb(43, 170, 255);
+    --modal-head-color: #39395e;
+    --app-bg-white0: rgb(255, 255, 255);
+    --app-bg-white1: rgb(240, 240, 240);
+    --app-bg-white2: rgb(211, 211, 211);
+    --lost-page-bg: rgb(250, 231, 231); 
+    --lost-page-text: #333333;
+    --app-bg-crem: #f5f1ea;
+    --app-blue-border: rgb(9, 9, 65);
+    --footer-link-hover : #99CA3C;
+    --modal-header-blue : #138496
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    font-family:
+        'Roboto', sans-serif;
+}
+
+body {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    margin-top: 50px;
+}
+
+a {
+    color: var(--app-menu-blue);
+    text-decoration: underline;
+}
+
+nav {
+    margin: 0 auto;
+    padding: 15px 25px;
+    background: var(--app-nav-green);
+}
+
+.links {
+    list-style-type:
+        none;
+    margin: 0;
+    padding: 0;
+}
+
+.links li {
+    display: inline-block;
+    background: lightgrey;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.links li a {
+    display: block;
+    padding: 8px 15px;
+    background: lightgrey
+}
+
+.message {
+    margin: 0 auto;
+    margin-top: 25px;
+    margin-bottom: 35px;
+    padding: 20px 10px;
+    background: dodgerblue;
+    text-align: center;
+    color: lightgrey;
+    font-size: 20px;
+    max-width: 400px;
+    border: 2px solid grey;
+    border-radius: 8px;
+}
+
+form input {
+    display: inline-block;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    padding: 8px;
+}
+
+form input:focus {
+    box-shadow: 0 0 5px steelblue;
+}
+
+form label {
+    display: inline-block;
+}
+
+.mainForm {
+    margin: 0 auto;
+    max-width: 400px;
+    background-color: lightgrey;
+    padding: 15px 10px;
+    border-radius: 10px;
+}
+
+.submitButton {
+    color: white;
+    background: steelblue;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 10px;
+}
+
+.submitButton:hover {
+    background-color: #138496;
+    cursor: pointer;
+}
+
+.submitButton:focus {
+    outline: none;
+    border: none;
+}
+
+input {
+    display: block;
+    padding: 4px 2px;
+    margin: 0 auto;
+    margin-bottom: 8px;
+}
+
+.profile {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.userInfo {
+    margin: 75px 0px;
+    text-align: left;
+}
+
+.userTitle {
+    font-size: 1.3rem;
+}
+
+.userName {
+    font-size: 20px;
+}
+
+.collapsible {
+    max-width: 700px;
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 22px;
+}
+
+.collapsible:hover,
+.active {
+    background-color: #555;
+}
+
+.collapsible h4 {
+    margin: 0;
+    margin-bottom: 0px;
+}
+
+.collContent {
+    max-width:
+        700px;
+    margin: 0 auto;
+    padding: 20px 20px;
+    display: none;
+    overflow: hidden;
+    background-color: lightgrey;
+}
+
+.collContent form {
+    margin: 10px 0px;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 10px;
+}
+
+
+/* Grid Examples */
+  
+  .wrapper-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-evenly;
+    grid-gap: 10px;
+    background-color: var(--app-nav-blue);
+    color: var(--footer-text);
+  }
+  
+  .box-2 {
+    background-color: var(--app-nav-blue);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 150%;
+  }
+/* end Grid */
+
+/* Like Bootstrap CSS */
+/* container */
+.ul-unstyled {
+	list-style: none;
+	margin-left: 5px;
+	padding-left: 0;
+}
+/* end Like Bootstrap  */
+
+/* Sticky footer style and color
+-------------------------------------------------- */
+footer {
+    padding-top: 30px;
+    background-color: var(--app-nav-blue); ;
+    color: var(--footer-text);
+  }
+  
+  footer a {
+    color: var(--footer-link);
+    text-decoration:none;
+  }
+  footer a:hover {
+    color: var(--footer-link-hover);
+    text-decoration:none;
+  }
+  
+  footer a:hover, footer a:focus {
+    color: var(--footer-link);
+    text-decoration:none;
+    border-bottom: none dotted var(--footer-link);
+  }
+  
+  footer .form-control {
+      background-color: var(--app-nav-blue);
+      /* box-shadow: 0 2px 0 0 rgba(255, 255, 255, 0.6); */
+      border: none;
+      resize: none;
+      color: var(--footer-text);
+      padding: 0.7em 1em;
+  }
+ 
+  .contact-us-container{
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  /*  */
+  
+  
+#com-log {
+
+    background-color: var(--app-bg-white1);
+  }
+
+  #com-log img{
+    height: 60px;
+    width: auto;
+    padding: 6px;
+    /* background-color: var(--app-nav-green); */
+  }
+
+  nav .nav-link {
+    color: var(--app-bg-white1) !important;
+  }
+
+#navA{
+    text-decoration: none;
+}
+
+.modal-header-div {
+    border-top: var(--modal-header-blue) solid 2px;
+    border-bottom: var(--modal-header-blue) solid 2px;
+    padding: 5px 5px;
+}
+
+.div.card{
+    width: 18rem;
+}

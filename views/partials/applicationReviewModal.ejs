@@ -1,0 +1,32 @@
+<div class="modal fade" id="applicationReviewModal" tabindex="-1" aria-labelledby="applicationReviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="applicationReviewModalLabel">Application Review</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="reviewForm">
+            <div class="mb-3">
+              <label for="gradeInput" class="form-label">Grade</label>
+              <input id="gradeInput" class="form-control w-25" type="number" min="1" max="10" aria-describedby="gradeError"> 
+              <div id="gradeError" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label for="commentInput" class="form-label">Comment</label>
+              <textarea id="commentInput" class="form-control" aria-describedby="commentError"></textarea>
+              <div id="commentError" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label for="approvalInput" class="form-check-label">Approval</label>
+              <input id="approvalInput" class="form-check-control" type="checkbox"> 
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" id="reviewSubmitBtn" class="btn btn-info">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>

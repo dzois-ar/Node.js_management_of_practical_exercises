@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('../partials/header'); %>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+<%- include('../partials/navBar'); %>
+
+<body>
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-9 personal-info">
+          <h3>Edit Profile</h3>
+          <br><br>
+          <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="/student/uploadImg">
+            <div class="text-center">
+              <img src=<%=info.photo %> class="avatar img-circle" alt="avatar" height="250">
+              <h6>Upload a different photo...</h6>
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-4">
+                    <input type="file" class="form-control " name="image">
+                    <input type="submit" class="btn btn-primary" value="Save Photo">
+                  </div> 
+                  <input type="hidden" name="student_id" value="<%= info.student_id %>">
+              </div> 
+            </div>
+          </form>
+          <form class="form-horizontal" role="form"  method="POST" action="/student/uploadPassword">
+            <br><br><br>
+            <input type="hidden" name="student_id" value="<%= info.student_id %>">
+            <div class="mb-2 d-flex justify-content-around"><b>Change Password</b></div>
+            <div class="form-group">
+              <div class="row d-flex justify-content-center">
+                  <div class="col-md-6">
+                      <div class="d-flex justify-content-start"><label class="col-md-2 control-label">Password:</label></div>
+                      <input class="form-control" type="password" name="password" >
+                  </div>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <div class="d-flex justify-content-start"><label class="col-md-3 control-label">New password:</label></div>
+                        <input class="form-control" type="password" name="newPassword" >
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+              <div class="row d-flex justify-content-center">
+                  <div class="col-md-6">
+                      <div class="d-flex justify-content-start"><label class="col-md-4 control-label">Confirm Password:</label></div>
+                      <input class="form-control" type="password" name="confirmPassword">
+                  </div>
+              </div>
+            </div>
+            <div class="form-group">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <input type="submit" class="btn btn-primary" value="Save Password">
+                        <span></span>
+                        <a href="/student/StudentProfile" class="m-t-10 m-b-20 waves-effect waves-dark btn btn-light btn-md btn-rounded" data-abc="true">Cancel</a>
+                      </div>
+                </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </body>
+  
+
+</html>    
